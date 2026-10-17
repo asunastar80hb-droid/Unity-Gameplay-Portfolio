@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc52279740de4dc4844f9f5a95359266, type: 3}
+  m_Name: Table_Data
+  m_EditorClassIdentifier: Assembly-CSharp::FurnitureData
+  furnitureName: Table
+  levels:
+  - level: 1
+    prefab: {fileID: 7794203491514205620, guid: 1ca6aae4e3100ec4c908e4b9b83fc830, type: 3}
+    upgradeCost: 100
+  - level: 2
+    prefab: {fileID: 4828508560505518906, guid: 8868079ac22f62346a12b18791730c9e, type: 3}
+    upgradeCost: 250
+  - level: 3
+    prefab: {fileID: 8951501986861722574, guid: 3340d3e8f47c3504da63a51f45d9788f, type: 3}
+    upgradeCost: 300

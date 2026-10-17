@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6370091514310488224}
   - component: {fileID: 3542939269659191117}
   - component: {fileID: -5652934855165510059}
-  - component: {fileID: -8657842141390120023}
   - component: {fileID: 1295884681130850211}
   m_Layer: 0
   m_Name: Machin L3
@@ -28,6 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3773403376064061668}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 3.407, y: -0.122, z: 1.202}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -36,7 +36,6 @@ Transform:
   - {fileID: 6250335639394125794}
   - {fileID: 1072274683830728263}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &6370091514310488224
 MeshFilter:
@@ -63,6 +62,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -84,9 +88,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &-5652934855165510059
 BoxCollider:
@@ -96,26 +102,19 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3773403376064061668}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 0.29500186, y: 0.32639703, z: 0.17317547}
   m_Center: {x: -0.002331525, y: 0.16047813, z: 0.0013087094}
---- !u!114 &-8657842141390120023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3773403376064061668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73b499669782f3f469db9bd9f4791e55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttonText: Interact
-  level: 2
-  NextLevelPrefab: {fileID: 8107659692458887678, guid: f5d7ed0868ee9444eaf9ce8d74a42b35, type: 3}
 --- !u!114 &1295884681130850211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,13 +127,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4165ccd93019e8d46833a4156b4a5c46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonText: Upgrade
-  ButtonPrefab: {fileID: 0}
 --- !u!1001 &3292139059578770287
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 6423838280140578370}
     m_Modifications:
     - target: {fileID: 2544950697413993768, guid: 99822baf4d1ea664baa5c8dcee5e913b, type: 3}
@@ -198,6 +196,9 @@ PrefabInstance:
       value: Whisk01 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99822baf4d1ea664baa5c8dcee5e913b, type: 3}
 --- !u!4 &1072274683830728263 stripped
 Transform:
@@ -209,6 +210,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 6423838280140578370}
     m_Modifications:
     - target: {fileID: 2544950697413993768, guid: 99822baf4d1ea664baa5c8dcee5e913b, type: 3}
@@ -272,6 +274,9 @@ PrefabInstance:
       value: Whisk01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99822baf4d1ea664baa5c8dcee5e913b, type: 3}
 --- !u!4 &6250335639394125794 stripped
 Transform:

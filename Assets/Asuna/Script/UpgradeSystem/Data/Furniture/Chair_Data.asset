@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc52279740de4dc4844f9f5a95359266, type: 3}
+  m_Name: Chair_Data
+  m_EditorClassIdentifier: Assembly-CSharp::FurnitureData
+  furnitureName: Chair
+  levels:
+  - level: 1
+    prefab: {fileID: 6866309848587492399, guid: 5eddec70e5e9d5d4da7ee6034241a319, type: 3}
+    upgradeCost: 100
+  - level: 2
+    prefab: {fileID: 6099095673749893335, guid: 86237fe90f4db3142acb25915f5ef86f, type: 3}
+    upgradeCost: 250
+  - level: 3
+    prefab: {fileID: 5753202394103835086, guid: 488867bcc5c2c89488355e5b9749f597, type: 3}
+    upgradeCost: 300

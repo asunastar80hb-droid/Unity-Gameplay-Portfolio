@@ -25,11 +25,11 @@ public class AsunaMovmentControler : MonoBehaviour
     [Header("Gravity")]
     public float gravity = -20f;
     public float groundedVelocity = -2f;
-    
+
     [Header("Animation Parameters")]
-    [SerializeField] private string isMoving = "isRuning";
-    [SerializeField] private string isIdle = "isIdle";
-    [SerializeField] private string isJumping = "IsJump";
+    private string isMoving = "isRunning";
+    private string isIdle = "isIdle";
+    private string isJumping = "IsJump";
 
     private bool isJump;
     private Rigidbody rb;
@@ -48,6 +48,8 @@ public class AsunaMovmentControler : MonoBehaviour
 
         rb.useGravity = false;
         rb.mass = 1f;
+
+        SetAnimationState(false, true, false);
     }
 
     private void Update()
@@ -69,9 +71,13 @@ public class AsunaMovmentControler : MonoBehaviour
 
     private void GetMovementInput()
     {
-        float horizontal = joystick != null ? joystick.Horizontal : Input.GetAxisRaw("Horizontal");
+        float horizontal = joystick != null
+            ? joystick.Horizontal
+            : Input.GetAxisRaw("Horizontal");
 
-        float vertical = joystick != null ? joystick.Vertical : Input.GetAxisRaw("Vertical");
+        float vertical = joystick != null
+            ? joystick.Vertical
+            : Input.GetAxisRaw("Vertical");
 
         Vector3 input = new Vector3(horizontal, 0f, vertical);
 
@@ -99,7 +105,8 @@ public class AsunaMovmentControler : MonoBehaviour
 
     private void RotatePlayer()
     {
-        if (movement.sqrMagnitude < 0.01f) return;
+        if (movement.sqrMagnitude < 0.01f)
+            return;
 
         Quaternion targetRotation = Quaternion.LookRotation(movement);
 
@@ -109,14 +116,17 @@ public class AsunaMovmentControler : MonoBehaviour
             rotationSpeed * Time.fixedDeltaTime
         );
     }
+
     public void Jump()
     {
-        if (isJump) return;
-        
+        if (isJump)
+            return;
+
         CheckGround();
 
-        if (!isGrounded) return;
-        
+        if (!isGrounded)
+            return;
+
         isJump = true;
         isGrounded = false;
 
@@ -166,20 +176,56 @@ public class AsunaMovmentControler : MonoBehaviour
 
     private void UpdateAnimation()
     {
-        if (animator == null) return;
+        if (animator == null)
+            return;
 
         bool moving = movement.sqrMagnitude > 0.01f;
 
-        animator.SetBool(isMoving, moving && !isJump);
-        animator.SetBool(isIdle, !moving && !isJump);
-        animator.SetBool(isJumping, isJump);
+        if (isJump)
+        {
+            SetAnimationState(
+                moving: false,
+                idle: false,
+                jumping: true
+            );
+
+            return;
+        }
+
+        if (moving)
+        {
+            SetAnimationState(
+                moving: true,
+                idle: false,
+                jumping: false
+            );
+        }
+        else
+        {
+            SetAnimationState(
+                moving: false,
+                idle: true,
+                jumping: false
+            );
+        }
+    }
+
+    private void SetAnimationState(
+        bool moving,
+        bool idle,
+        bool jumping)
+    {
+        animator.SetBool(isMoving, moving);
+        animator.SetBool(isIdle, idle);
+        animator.SetBool(isJumping, jumping);
     }
 
     private void OnDrawGizmosSelected()
     {
         CapsuleCollider col = GetComponent<CapsuleCollider>();
 
-        if (col == null) return;
+        if (col == null)
+            return;
 
         Bounds bounds = col.bounds;
 
@@ -189,8 +235,13 @@ public class AsunaMovmentControler : MonoBehaviour
             bounds.center.z
         );
 
-        Gizmos.color = isGrounded ? Color.green : Color.red;
+        Gizmos.color = isGrounded
+            ? Color.green
+            : Color.red;
 
-        Gizmos.DrawWireSphere(checkPosition, groundCheckRadius);
+        Gizmos.DrawWireSphere(
+            checkPosition,
+            groundCheckRadius
+        );
     }
 }

@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Normal LIfe/Room.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Normal LIfe/Kitchen.unity
+    path: Assets/Asuna/Scenes/Kitchen.unity
     guid: e8b68163911ba8e49abf3134e4301fd9
   - enabled: 1
     path: Assets/Asuna/Scenes/Fishing.unity

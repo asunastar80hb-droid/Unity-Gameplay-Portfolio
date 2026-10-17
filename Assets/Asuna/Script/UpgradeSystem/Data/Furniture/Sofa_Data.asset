@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc52279740de4dc4844f9f5a95359266, type: 3}
+  m_Name: Sofa_Data
+  m_EditorClassIdentifier: Assembly-CSharp::FurnitureData
+  furnitureName: Sofa
+  levels:
+  - level: 1
+    prefab: {fileID: 6007492891315183246, guid: b964d1017ac4caf44b5b139a81e089a8, type: 3}
+    upgradeCost: 0
+  - level: 2
+    prefab: {fileID: 3967864907996035091, guid: c2f9e7607646548458dc430e9cca8ec4, type: 3}
+    upgradeCost: 100
+  - level: 3
+    prefab: {fileID: 2379750111830988056, guid: 62075b2fadb7b834486504a6d604d2de, type: 3}
+    upgradeCost: 250
