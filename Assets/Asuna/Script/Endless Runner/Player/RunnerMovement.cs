@@ -27,12 +27,14 @@ public class RunnerMovement : MonoBehaviour
     [SerializeField] private string isMoving = "isRunning";
     [SerializeField] private string isIdle = "isIdle";
     [SerializeField] private string isJumping = "IsJump";
-
+    [SerializeField] private string deathTrigger = "Die";
+    
     private Rigidbody rb;
     private CapsuleCollider capsule;
 
     private int currentLane = 1;
 
+    private bool isDead;
     private bool isJump;
     private bool isGrounded;
 
@@ -55,6 +57,9 @@ public class RunnerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (isDead)
+            return;
+        
         HandleInput();
         CheckGround();
         UpdateAnimation();
@@ -62,6 +67,9 @@ public class RunnerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isDead)
+            return;
+        
         MovePlayer();
     }
 
@@ -190,7 +198,23 @@ public class RunnerMovement : MonoBehaviour
         animator.SetBool(isIdle, idle);
         animator.SetBool(isJumping, jumping);
     }
+    public void PlayDeathAnimation()
+    {
+        if (isDead)
+            return;
 
+        isDead = true;
+
+        rb.linearVelocity = Vector3.zero;
+        rb.useGravity = true;
+
+        if (animator != null)
+        {
+            animator.ResetTrigger(deathTrigger);
+            animator.SetTrigger(deathTrigger);
+        }
+    }
+    
     private void OnDrawGizmosSelected()
     {
         CapsuleCollider col = GetComponent<CapsuleCollider>();
@@ -204,4 +228,5 @@ public class RunnerMovement : MonoBehaviour
         Gizmos.color = isGrounded ? Color.green : Color.red;
         Gizmos.DrawWireSphere(checkPosition, groundCheckRadius);
     }
+    
 }
