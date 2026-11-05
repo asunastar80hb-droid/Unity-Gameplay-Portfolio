@@ -34,6 +34,11 @@ public class RunGameManager : MonoBehaviour
             return;
 
         IsGameOver = true;
+        
+        if (RunProgressManager.Instance != null)
+        {
+            RunProgressManager.Instance.SaveRunResult();
+        }
 
         RunnerMovement movement = runnerMovement as RunnerMovement;
 

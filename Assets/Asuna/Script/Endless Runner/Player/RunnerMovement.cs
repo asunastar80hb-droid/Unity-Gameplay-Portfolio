@@ -37,6 +37,8 @@ public class RunnerMovement : MonoBehaviour
     private bool isDead;
     private bool isJump;
     private bool isGrounded;
+    
+    public float ForwardSpeed => forwardSpeed;
 
     private void Awake()
     {
@@ -213,6 +215,11 @@ public class RunnerMovement : MonoBehaviour
             animator.ResetTrigger(deathTrigger);
             animator.SetTrigger(deathTrigger);
         }
+    }
+    
+    public void SetForwardSpeed(float newSpeed)
+    {
+        forwardSpeed = newSpeed;
     }
     
     private void OnDrawGizmosSelected()
